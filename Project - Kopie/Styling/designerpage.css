@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0; /*wichtig: padding vergößert Elemente nicht ungewollt*/
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Helvetica', Arial, ans-serif;
+    background-color: #fff;
+    padding-left: 40px;
+    padding-right: 40px; /* Äußerer Rahmen d Website */
+}
+
+/*---1. NAVIGATIONSLEISTE (FLEXBOX) ---*/
+.navigationsleiste {
+    display: flex;
+    justify-content: space-between; /*Logo ganz links, Liste ganz rechts */
+    align-items: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Header bleibt über Bildern*/
+    background-color: white;
+}
+
+.nav-unterseiten  {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    cursor: default; /*zeigt normalen Mousezeiger (keine Hand)*/
+}
+
+.navigationsleiste a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-unterseiten a.active{
+    font-weight: bold; /*visuelles feedback für aktive Seite*/
+}
+
+.nav-unterseiten a:hover{
+    text-decoration: underline;
+}
+
+/*---2. HEADER BEREICH (mit Überlappung) ---*/
+.designer-header{
+    position: relative;
+    margin-bottom: 80px;
+}
+
+h1{
+    font-size: 5rem; /*rem passt sich besser an Benutzereinstellungen an als starre px Zahl*/
+    text-transform: uppercase; /*automatische Großbuchstaben*/
+    line-height: 1;
+
+    /*Überlappung:*/
+    position:absolute; /*nimmt h1 aus normalem Seitenfluss, damit es "frei" über anderem content schweben kann trz orientierung am letzten Elternelement im Code das position: relative hat*/
+    top: -30px; /*Positionierung nach oben durch minus*/
+    left: 0; /*klebt Element an linken Rand also: 0px Abstand von links)*/
+    z-index: 10; /*Stapel-Reihenfolge(Layer) standardmäßig z-index:0
+    pointer-events: none; /*click geht durch Text durch und spricht ihn nicht an*/
+}
+
+.banner-image img{
+    display: block;
+    background-color: #d3d3d3; /*Platzhalter grau--> später: Bild*/
+    border-radius: 30px;
+    height: 350px;
+    width: 100%;
+    margin-top: 50px;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.trennlinie{
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 40px 0;
+}
+
+/*--- 3.BIOGRAPHY (FLEXBOX) ---*/
+.biography{
+    display: grid;
+    grid-template-columns: 350px minmax(0, 700px);
+    column-gap: 20px;
+    align-items: start;
+    margin-bottom: 60px;
+}
+
+.bio-left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /*rechtsbündigkeit*/
+}
+
+.designerportrait-placeholder img{
+    width: 100%;
+    max-width: 350px;
+    border-radius: 30px;
+    aspect-ratio: 3/4; /*seitenverhältnis wird beibehalten, egal welcher Bildschirm-> RESPONSIVE*/
+    background-color: #d3d3d3;
+    object-fit: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.designerportrait-caption{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-align: right;
+    width: 100%;
+    max-width: 350px;
+}
+
+.bio-right{
+    padding-top: 0;
+    padding-left: 40px;
+}
+
+.bio-right h2{
+    font-size: 2rem;
+    font-weight: lighter;
+    margin-bottom: 40px;
+}
+
+.bio-block{
+    margin-bottom: 40px;
+}
+
+.bio-block h3{
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.bio-block p{
+    line-height: 1.4;
+    font-size: 0.95rem;
+    max-width: 500px;
+    font-weight: lighter;
+}
+
+/*--- 4.PROJECTS OVERVIEW (CSS-GRID) ---*/
+.projects-overview h2{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.projects-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 40px;
+    row-gap: 60px;
+}
+
+.project-card{
+    cursor: pointer; /* mousezeiger wird zu hand mit zeigefinger, damit Nutzer anklickbarkeit versteht*/
+    transition: transform 0.2s ease; /*"lass dir für die änderung zwischen Mousezeigern 0,2 sek Zeit*/
+
+}
+
+.project-card:hover {
+    transform: translateY(-5px) !important; /*Karte hebt sich visuell um 5px beim drüberhovern an -> 3D-Effewkt*/
+}
+
+.project-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-image img{
+    background-color: #d3d3d3;
+    aspect-ratio: 4/3;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    object-fit: cover;
+    object-position: center 2%;
+}
+.project-image2 img{
+    background-color: #d3d3d3;
+    aspect-ratio: 4/3;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+.project-image3 img{
+    background-color: #d3d3d3;
+    aspect-ratio: 4/3;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    object-fit: cover;
+    object-position: center 0.5%;
+}
+
+.project-title{
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Fußnote, die sagt, dass alle Bilder mit KI generiert erstellt wurden*/
+.global-ki-hinweis{
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: right;
+    font-style: italic;
+    clear:both;
+    display:block;
+}
+
+
+
+.footer-links a:hover{
+    text-decoration: underline;
+}
+
+.site-footer{
+    display: flex;
+    margin-top: 20px; /* Abstand zum Designer-Grid*/
+    padding: 40px 0; /* Platz innerhalb des footers*/
+    border-top: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+    font-size: 0.8rem;
+
+}
+
+.copyright-year{
+    font: 0.9rem;
+    color: #555;
+}
+
+/*--- RESPONSIVITÄT (<768px) ---*/
+@media(max-width:768px){
+
+    /* 1. HEADER & BANNER FIX */
+    h1{
+        font-size: 2.5rem;
+        position: static;
+        margin: 20px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .banner-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-top: 0;
+    }
+
+    .banner-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+
+    /* 2. LAYOUT & PORTRAIT */
+    .trennlinie{
+        display: block;
+        border-top: 1px solid black;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .biography{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .bio-left{
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .designerportrait-placeholder, .designerportrait-caption{
+        max-width: 100%; 
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .designerportrait-placeholder img {
+        margin: 0 auto 15px auto;
+    }
+
+    .bio-right {
+        padding-left: 0;
+    }
+
+    .bio-right h2{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    /* 3. PROJEKTE: UNTEREINANDER (STAPELN) */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Alles schön untereinander */
+        gap: 40px;
+    }
+
+    .project-card {
+        width: 100%; /* Volle Breite nutzen */
+    }
+
+    .project-title {
+        font-size: 1rem;
+        text-align: right; /* Titel bleibt rechtsbündig unter dem Bild */
+    }
+
+    /* 4. KI-HINWEIS ZENTRIEREN (WIE BILD 2) */
+    .global-ki-hinweis {
+        text-align: center; /* Zentriert den Text */
+        font-style: italic;
+        color: #666;
+        margin-top: 40px;
+        margin-bottom: 60px; /* Etwas Abstand zum Footer */
+        font-size: 0.8rem;
+    }
+
+    /* 5. FOOTER */
+    footer{
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}

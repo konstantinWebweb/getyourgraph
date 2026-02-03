@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getyourgraph</title>
+
+    <link rel="stylesheet" href="../Styling/designerpage.css">
+    <link href="https://unpkg.com/aos@2.3.2/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navigationsleiste">
+        <div class="logo">getyourgraph - Clara Sullivan</div>
+        <div class="nav-unterseiten">
+            <a href="getyourgraph.html">home</a>
+            <a href= "overview.html"><strong>designer</strong></a>
+            <a href="#">insta</a> 
+        </div>
+    </nav>
+
+    <header class="designer-header">
+        <h1>CLARA SULLIVAN</h1>
+        <div class="banner-image">    
+            
+            <img src="../Assets/Bilder getyourgraph/Clara Sullivan/Clara Sullivan Portrait-2.jpg" alt="Portrait Augen">
+        </div> 
+    </header>
+
+    <hr class="trennlinie">
+
+    <section class="biography">
+        <div class="bio-left">
+            <div class="designerportrait-placeholder">
+                <img src="../Assets/Bilder getyourgraph/Clara Sullivan/Clara Sullivan Portrait.png" alt="Portrait volle Größe">
+            </div>
+            <h3 class="designerportrait-caption">CLARA SULLIVAN</h3>
+        </div>
+
+        <div class="bio-right">
+            <h2>BIOGRAPHY</h2>
+
+            <div class="bio-block">
+                <h3>LIFE</h3>
+                <p>Aufgewachsen im pulsierenden Osten Londons, war Clara Sullivan schon früh fasziniert von der Ästhetik der Clubkultur und den flackernden Bildschirmen der Stadt. Sie versteht sich selbst als "Digital Native", deren visuelle Sprache in der Geschwindigkeit des Internets entstanden ist.</p>
+            </div>
+
+            <div class="bio-block">
+                <h3>WORK & EXPERIENCE</h3>
+                <p>Sullivan begann ihre Karriere mit Motion-Design für Musikfestivals und entwickelte sich schnell zu einer gefragten Art-Direktorin für globale Marken. Sie ist bekannt für ihre interaktiven Kampagnen, die die Grenzen zwischen physischem Raum und digitaler Projektion verwischen..</p>
+            </div>
+
+            <div class="bio-block">
+                <h3>STYLE CHARACTERIZATION</h3>
+                <p> Ihr Stil zeichnet sich durch eine hochenergetische Nutzung von Neonfarben und kinetischer Typografie aus. Sie bricht klassische Layout-Regeln zugunsten von Bewegung und Licht, wodurch ihre Arbeiten eine fast physische Präsenz auf Bildschirmen entwickeln.</p>
+            </div>
+        </div>     
+    </section>
+
+    <hr class="trennlinie">
+
+    <section class="projects-overview">
+        <h2 class="section-title">PROJECTS</h2>
+
+        <div class="projects-grid">
+            <article class="project-card" onclick="openProject('Project 1')" data-aos="fade-up"> <!--die erste projektkachel soll sofort sichtbar sein, deshalb kein data-aos-delay, weil standardwert 0-->
+                <a href="projectpageDigitalPulse.html">
+                    <div class="project-image2">
+                        <img src="../Assets/Bilder getyourgraph/Clara Sullivan/Projektserie 1/Proj1.4.png">
+                    </div>
+                    <p class="project-title">DIGITAL PULSE</p>  
+                </a>
+            </article> <!-- <article>-Element wird verwendet, weil jeder Projekteintrag einen in sich geschlossenen, eigenständigen Inhalt darstellt.-->
+
+            <article class="project-card" onclick="openProject('Project 2')" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-image3">
+                    <img src="../Assets/Bilder getyourgraph/Clara Sullivan/Projektserie 2/Proj2.3.png">
+                </div>
+                <p class="project-title">CYBER</p>
+            </article> 
+
+            <article class="project-card" onclick="openProject('Projekt 3')" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-image">
+                    <img src="../Assets/Bilder getyourgraph/Clara Sullivan/Projektserie 3/Proj3.3.png">
+                </div>
+                <p class="project-title">DREAMING</p>
+            </article>
+        </div>
+
+        <!--Fußnoten Hinweis, um klarzustellen, dass alle Bilder generiert wurden-->
+            <p class="global-ki-hinweis"> * Alle auf dieser Seite gezeigten Bilder wurden mit Hilfe von KI erstellt.</p>
+
+    </section>
+
+   
+     <footer class="site-footer">
+        <div class="footer-links">
+            <a href="impressum.html">Impressum & Data Privacy</a>
+            <a href="help.html">Help</a>
+        </div>
+        <div class="footer-copyright">
+            © 2026 getyourgraph
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="../Logik/designerpage.js"></script>
+    
+</body>
+</html>

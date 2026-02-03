@@ -1,0 +1,181 @@
+/* grundlegende Einstellung für ganze Seite*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Helvetica', Arial, ans-serif;
+    background-color: #fff;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* richtet Logo und Menü in einer Zeile aus*/
+.navbar{
+    display: flex;
+    justify-content: space-between; /*Logo ganz links, Liste ganz rechts */
+    align-items: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Header bleibt über Bildern*/
+    background-color: white;
+}
+
+/* Entdern Listenpunkte und ordnet Menüpunkte oben nebeneinander an*/
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links a:hover{
+    text-decoration: underline;
+}
+
+/*Stylet die große Überschrift*/
+.page-title{
+    text-decoration: none;
+    color: black;
+    font-size: 5rem;
+}
+
+/*Erzeugt die 3 horizontalen Linien über und unter den Filtern*/
+.filter-bar{
+    display: flex;
+    flex-wrap: wrap; /* erlaubt Zeilenumbruch wenn der Tab zB kleiner Wert --> responsive, die Wörter behalten ihren Abstand zueienander*/
+    justify-content: space-between;  /*verteilt wörter gleichmäßig von links nach rechts*/
+    border-top: 1px solid black; /*obere Linie*/
+    border-bottom: 1px solid black; /*untere Linie*/
+    padding: 15px 0; /* Abstand zwischen Text & Linien*/
+    margin-top: 20px; /* Abstand gesamte Leite nach unten zum Inhalt*/
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    text-transform: uppercase; /*Alles in Großbuchstaben*/
+}
+
+/*Klasse für aktiven Filter-Zustand*/
+.filter-bar span.active-filter{
+    font-weight: bold;
+}
+
+.filter-bar span{
+    cursor: pointer; /* "Zeigefinger erscheint auf Wort wenn man mit Mouse drüberfährt*/
+    transition: color 0.3 ease; /* Übergang weicher*/
+}
+
+.filter-bar span:hover{
+    color:#666; /* Wörter werden beim Drüberfahren leicht grau*/
+}
+
+.active-filter{
+    font-weight: bold; /* Overview wird nochmal unterstrichen*/
+    border-bottom: 2px solid black;
+    padding-bottom: 2px;
+}
+
+/* Fußnote, die sagt, dass alle Bilder mit KI generiert erstellt wurden*/
+.global-ki-hinweis{
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: right;
+    font-style: italic;
+    clear:both;
+    display:block;
+}
+
+.footer-links a:hover{
+    text-decoration: underline;
+}
+
+.site-footer{
+    display: flex;
+    margin-top: 20px; /* Abstand zum Designer-Grid*/
+    padding: 40px 0; /* Platz innerhalb des footers*/
+    border-top: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+    font-size: 0.8rem;
+
+}
+
+/*CSS Grid: 2-Spalten-Layout*/
+.designer-grid{
+    display: grid;
+    /* Erzeugt 2 gleichgroße Spalten:*/
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px; /* Abstand zwischen den Spalten links&rechts*/
+    row-gap: 50px; /* Abstand zwischen Zeilen oben&unten*/
+}
+
+.designer-text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-top: 20px;
+    font-weight: lighter;
+}
+
+.designer-image {
+    transition: transform 0.5s ease;
+}
+
+.designer-image:hover {
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE DESIGN: Breakpoint für mobile Geräte --> Regel gilt nur unter bestimmter Bedingung (hier: max-width)
+--> media wird aufgerufen wenn Größe sich in dem Raum ändert*/
+@media (max-width: 768px){
+    /* ändert Grid auf nur 1 Spalte, wenn Bildschirm schmal ist*/
+    .designer-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Gestaltung Bilder*/
+.designer-image{
+    width: 100%; /* Bild füllt Spalte komplett aus*/
+    aspect-ratio: 4/3; /*Bild behält rechteckiges Format*/
+    object-fit: cover; /*Schneidet Bild sauber zu, falls es zu groß ist*/
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 15px; /* Fals Bild nicht lädt sieht man kurz grauen Kasten*/
+    background-color: #ddd;
+    border-radius: 30px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.designer-image::after{
+    content:"";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255, 255, 0.35);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.designer-image:hover::after{
+    opacity: 1;
+}

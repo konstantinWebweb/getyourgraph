@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview | designer</title>
+    <link rel="stylesheet" href="../Styling/overview.css">
+     
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">getyourgraph</div>
+        <ul class="nav-links"> <!--Menüpunkte werden gruppiert: sorgt für saubere und strukturierte Liste der Navigationsleiste-->
+            <li><a href="getyourgraph.html">home</a></li>
+            <li><a href="overview.html"><strong>designer</strong></a></li> <!--# ist Platzhalter-->
+            <li><a href="#">insta</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">OVERVIEW</h1> <!--Verknüpfung mit CSS, damit man Style ändern kann-->
+        
+        <div class="filter-bar"> <!--Filterbegriffe zwischen den beiden Linien einbauen-->
+            
+            <span class="active-filter">overview</span> <!--overview in der Filterbar ist fett, da man sich auf der Seite befindet-->
+            <span><a href="#" style="text-decoration:none; color:inherit;" >minimalismus</a></span> 
+            <span>maximalismus</span>
+            <span>geometrisch</span>
+            <span>typografie</span>
+            <span>neo-dadaismus</span>
+        </div>
+        
+        <!-- Section ist Strukturelement & initialisiert neuen Inhaltsbereich-->
+        <section class ="designer-grid" id="designer-grid"> <!--ID für JS-Code-->
+
+        </section>
+
+        <!--Fußnoten Hinweis, um klarzustellen, dass alle Bilder generiert wurden-->
+            <p class="global-ki-hinweis"> * Alle auf dieser Seite gezeigten Bilder wurden mit Hilfe von KI erstellt.</p>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="impressum.html">Impressum & Data Privacy</a>
+            <a href="help.html">Help</a>
+        </div>
+        <div class="footer-copyright">
+            © 2026 getyourgraph
+        </div>
+    </footer>
+
+   <script src="../Logik/overview.js"></script>
+
+</body>
+</html>

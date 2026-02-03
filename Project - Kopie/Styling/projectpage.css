@@ -1,0 +1,324 @@
+/* css/base.css */
+
+:root {
+    /* Farben */
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --color-grey-light: #e0e0e0; /* Für Bild-Platzhalter */
+    --color-grey-dark: #666666;  /* Für Sekundärtext */
+    /* Typografie */
+    --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-s: 1rem;
+    --spacing-m: 2rem;
+    --spacing-l: 4rem;
+    --spacing-xl: 6rem;
+    /* Container */
+    --container-width: 1400px; /* Maximale Breite des Inhalts */
+    --header-height: 80px;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family:'Helvetica', Arial, ans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    background-color: var(--color-grey-light); /* Fallback Farbe */
+    border-radius: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* === HAUPTCONTAINER === */
+main {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* === HEADER (Fixiert oben) === */
+.navigationsleiste {
+    display: flex;
+    justify-content: space-between; /*Logo ganz links, Liste ganz rechts */
+    align-items: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Header bleibt über Bildern*/
+    background-color: white;
+}
+
+.nav-unterseiten  {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    cursor: default; /*zeigt normalen Mousezeiger (keine Hand)*/
+}
+
+.navigationsleiste a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-unterseiten a.active{
+    font-weight: bold; /*visuelles feedback für aktive Seite*/
+}
+
+.nav-unterseiten a:hover{
+    text-decoration: underline;
+}
+
+/* Fußnote, die sagt, dass alle Bilder mit KI generiert erstellt wurden*/
+.global-ki-hinweis{
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: right;
+    font-style: italic;
+    clear:both;
+    display:block;
+}
+ 
+/* === FOOTER === */
+.footer-links a:hover{
+    text-decoration: underline;
+}
+
+.site-footer{
+    display: flex;
+    margin-top: 20px; /* Abstand zum Designer-Grid*/
+    padding: 40px 0; /* Platz innerhalb des footers*/
+    border-top: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+    font-size: 0.8rem;
+
+}
+
+/* === HAUPT-INHALT ABSTAND === */
+.project-content {
+    display: grid;
+    /* Hier stellst du den Abstand zum oberen Bild ein */
+    padding-top: 40px;
+}
+
+/* === RESPONSIVES RASTER === */
+/* Standard (Mobile First): Elemente stehen untereinander */
+.content-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    align-items: stretch;
+}
+
+/* Ab Tablet/Desktop (Breite > 768px): Elemente nebeneinander */
+@media (min-width:768px) {
+    .content-row {
+        flex-direction: row; /* Nebeneinander */
+        justify-content: space-between;
+    }
+
+    .text-column {
+        flex: 1; /*Text nimmt restlichen Platz ein, der Bild übrig lässt */
+        padding-right: 2rem;
+    }
+
+    .image-column {
+       flex: 0 0 clamp(33vw,35vw,420px); /* mind. 1/3 Bildschirmbreite, idealer weise 35%, 420px als MAX bei kleinen Screens, flex 0 0 verhndert, dass flexbox breite verändert */
+    }
+}
+
+@media (max-width: 600px){
+    .content-row {
+        flex-direction: column;
+    }
+    .image-column {
+        width: 100%;
+        min-height: 240px;
+    }
+}
+
+/* === TYPOGRAFIE === */
+.project-title {
+    /* clamp() macht die Schriftgröße dynamisch zwischen Handy und Desktop */
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 40px;
+    line-height: 1;
+}
+
+.section-label {
+    font-size: 2rem;
+    padding-bottom: 40px;
+    font-weight: lighter;
+}
+
+/* Die feine Linie */
+.separator {
+    border: 0;
+    border-top: 1px solid var(--color-text);
+    margin-bottom: 30px;
+}
+
+.info-details {
+    margin-bottom: 40px;
+}
+
+.info-details h3 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.info-details p {
+    line-height: 1.4;
+    font-size: 0.95rem;
+    max-width: 500px;
+}
+
+/* === BILDER === */
+/* css/components.css */
+
+.hero-image-container {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 40px;
+    overflow: hidden; /* Schneidet alles ab, was übersteht */
+    background-color: var(--color-grey-light);
+    border-radius: 30px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Optional: Damit das Bild schön mittig sitzt (falls es das nicht schon tut) */
+    object-position: center 45%;
+}
+
+.hero-img2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Optional: Damit das Bild schön mittig sitzt (falls es das nicht schon tut) */
+    object-position: center 10%;
+}
+
+.image-column {
+    display: flex;
+}
+
+.content-img {
+    /* 3 / 4 macht es schön hochkant (wie ein Poster) */
+    /* Du kannst auch 1 / 1 für Quadratisch nehmen */
+    /* aspect-ratio: 3 / 4; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    display: block;
+
+    background-color: var(--color-grey-light);
+}
+/* === HORIZONTALER SCROLL BEREICH === */
+.scroll-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.horizontal-scroll-container {
+    display: flex;
+    gap: 2rem; /* Abstand zwischen den Karten */
+    overflow-x: auto; /* Erlaubt seitliches Scrollen */
+    padding-bottom: 1rem;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* versteckt scrollbalken für firefox */
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none; /* versteckt scrollbalken für chrome/safari */
+}
+ 
+/*Styling "YOU COULD ALSO LIKE*/
+.related-title {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Style für die einzelne Karte */
+.project-card {
+    flex: 0 0 300px; /* Feste Breite: 300px. Schrumpft nicht, wächst nicht. */
+    margin-top: 20px;
+
+}
+
+.project-card{
+    cursor: pointer; /* mousezeiger wird zu hand mit zeigefinger, damit Nutzer anklickbarkeit versteht*/
+    transition: transform 0.2s ease; /*"lass dir für die änderung zwischen Mousezeigern 0,2 sek Zeit*/
+}
+
+.project-card:hover {
+    transform: translateY(-5px) !important; /*Karte hebt sich visuell um 5px beim drüberhovern an -> 3D-Effewkt*/
+}
+/* Das Bild in der Karte */
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;   /* Schneidet Bild zu, statt zu quetschen */
+    display: block;
+    margin-bottom: 0.5rem;
+    background-color: var(--color-grey-light);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Mehr Abstand zwischen den Zeilen bei Basic Info */
+.info-details p {
+    margin-bottom: 1rem; /* Erhöhe diesen Wert (z.B. auf 1.5rem), wenn du noch mehr Platz willst */
+    line-height: 1.5;    /* Macht auch den Text selbst etwas luftiger */
+}

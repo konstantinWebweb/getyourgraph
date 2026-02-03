@@ -1,0 +1,298 @@
+/*Basis*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Helvetica', Arial, ans-serif;
+    background-color: #fff;
+    padding-left: 40px;
+    padding-right: 40px; /* Äußerer Rahmen d Website */
+}
+
+/* Navigation mit dem Flexbox-Modell -> Elemente stehen nur nebeneinander */
+.navigationsleiste {
+    display: flex;
+    justify-content: space-between; /*Logo ganz links, Liste ganz rechts */
+    align-items: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Header bleibt über Bildern*/
+    background-color: white;
+}
+
+.navigationsleiste ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.navigationsleiste a {
+    text-decoration: none;
+    color: black;
+}
+
+.navigationsleiste a:hover{
+    text-decoration: underline;
+}
+
+/* CSS-Grid Bereich oben */
+.headline-part1 {
+    display: grid; /*Spalte 1: Bild, Spalte 2: Text */
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: end; /* Bild und Text schließen an der Unterseite bündig ab*/
+    margin-bottom: 40px;
+}
+
+.image-placeholder1 {
+    background-color: #d9d9d9;
+    border-radius: 30px; 
+    height: 450px;
+    width: 100%;
+    aspect-ratio: 16/10; /*erzwingt rechteck*/
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.headline1 {
+    text-align: right;
+}
+
+.headline1 h1 {
+    font-size: 7rem;
+    line-height: 0.8;
+}
+
+.headline1 hr {
+    border-top: 1px solid black;
+    width: 100%; /* strich ist so breit wie textelement */
+    margin: 15px 0;
+}
+
+.konzeptvorstellung p {
+    max-width: 350px;
+    margin-top: 10px;
+    margin-left: auto; /* Absatz ist am rechten Rand */
+    font-size: 0.95rem;
+    line-height: 1.4;
+    font-weight: lighter;
+}
+
+.konzeptvorstellung strong {
+    max-width: 350px;
+    font-weight: lighter;
+    font-size: 2rem;
+}
+
+/* CSS-Grid Bereich mitte */
+.headline-part2 {
+    display: grid; /* zwei Spalten */
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.headline-part2 h2 {
+    font-size: 7rem;
+    line-height: 0.9;
+}
+
+.image-placeholder2 {
+    background-color: #d9d9d9;
+    border-radius: 30px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/* CSS-Grid Scrolling Projekt-Gallerie */
+.divider {
+    border: none;
+    border-top: 1px solid black;
+    margin-bottom: 60px;
+}
+
+.project-gallery {
+    overflow-x: auto; /*für horizontales scrollen */
+    scrollbar-width: none; /* versteckt scrollbalken für firefox */
+    margin-top: 60px;
+}
+
+.project-gallery::-webkit-scrollbar {
+    display: none; /* versteckt scrollbalken für chrome/safari */
+}
+
+.project-scroll {
+    display: grid; 
+    grid-template-rows: repeat(2, 350px); /*zwei Reihen mit gleicher höhe */
+    grid-template-columns: 350px;
+    grid-auto-flow: column; /* spalten werden automatisch nach rechts angefügt*/
+    gap: 30px;
+    width: max-content;
+}
+
+.project-card {
+    background-color: #d9d9d9;
+    border-radius: 30px;
+    width: 350px;
+    height: 350px;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;  
+
+}
+
+.project-card img{
+    background-color: #d9d9d9;
+    border-radius: 30px;
+    width: 350px;
+    height: 350px;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;  
+
+}
+
+.project-card::after{
+    content:"";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.35);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border-radius: 30px;
+}
+
+.project-card:hover::after{
+    opacity: 1;
+}
+
+.project-card span{
+    position: relative;
+    z-index: 1;
+}
+
+.project-card span {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+/* Mobile Anpassungen für Handys */
+@media (max-width: 768px){ 
+   .headline1 h1,
+   .headline-part2 h2{
+    font-size: clamp(5rem, 5.5vw, 6rem);
+    line-height: 0.95;
+   }
+    .headline-part1 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .image-placeholder1 {
+        height: clamp(220px, 45vw, 300px);
+    }
+
+    .headline-part2{
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .image-placeholder2{
+        height: clamp(160px, 35vw, 220px);
+    }
+
+    .project-card{
+        width: 175px;
+        height: 175px;
+    }
+
+    .project-scroll{
+        grid-template-columns: 175px;
+        grid-auto-columns: 175px;
+        gap: 20px;
+        width: max-content;
+        justify-content: start;
+    }
+
+    .project-card:nth-child(even){
+        transform: translateX(0);
+    }
+
+}
+
+/* Fußnote, die sagt, dass alle Bilder mit KI generiert erstellt wurden*/
+.global-ki-hinweis{
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: right;
+    font-style: italic;
+    clear:both;
+    display:block;
+}
+
+
+.footer-links a:hover{
+    text-decoration: underline;
+}
+
+.site-footer{
+    display: flex;
+    margin-top: 80px; /* Abstand zum Designer-Grid*/
+    padding: 40px 0; /* Platz innerhalb des footers*/
+    border-top: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+    font-size: 0.8rem;
+
+}
+
+/* === ANIMATION CLASSES === */
+
+/* 1. Die Grund-Einstellung für alle animierten Elemente */
+.js-fade-in {
+    opacity: 0;
+    /* Übergang für Deckkraft und Bewegung definieren */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* 2. Startposition: Kommt von LINKS (für das Bild) */
+.from-left {
+    transform: translateX(-100px); /* Startet 100px weiter links */
+}
+
+/* 3. Startposition: Kommt von RECHTS (für den Text) */
+.from-right {
+    transform: translateX(100px); /* Startet 100px weiter rechts */
+}
+
+/* 4. Endzustand: Sichtbar und an Originalposition */
+/* Das JavaScript fügt diese Klasse hinzu -> Alles rutscht auf 0 (Mitte) */
+.js-fade-in.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}

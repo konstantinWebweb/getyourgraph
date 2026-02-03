@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getyourgraph</title>
+
+    <link rel="stylesheet" href="../Styling/designerpageSofia.css">
+    <link href="https://unpkg.com/aos@2.3.2/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navigationsleiste">
+        <div class="logo">getyourgraph - Julien Moreau</div>
+        <div class="nav-unterseiten">
+            <a href="getyourgraph.html">home</a>
+            <a href= "overview.html"><strong>designer</strong></a>
+            <a href="#">insta</a> 
+        </div>
+    </nav>
+
+    <header class="designer-header">
+        <h1>JULIEN MOREAU</h1>
+        <div class="banner-image">    
+            
+            <img src="../Assets/Bilder getyourgraph/Julien Moreau/Julien Moreau Portrait-3.jpg" alt="Portrait Augen">
+        </div> 
+    </header>
+
+    <hr class="trennlinie">
+
+    <section class="biography">
+        <div class="bio-left">
+            <div class="designerportrait-placeholder">
+                <img src="../Assets/Bilder getyourgraph/Julien Moreau/Julien Moreau Portrait.png" alt="Portrait volle Größe">
+            </div>
+            <h3 class="designerportrait-caption">JULIEN MOREAU</h3>
+        </div>
+
+        <div class="bio-right">
+            <h2>BIOGRAPHY</h2>
+
+            <div class="bio-block">
+                <h3>LIFE</h3>
+                <p>Geboren und aufgewachsen in den Arbeitervierteln von Lyon, verbrachte Julien Moreau seine Jugend zwischen Independent-Plattenläden und Street-Art-Galerien. Mit Mitte 40 blickt er auf eine Ära zurück, in der Design noch mit Schere und Kleber begann. Diese Liebe zum Unperfekten prägt seine Identität als Künstler, der sich weigert, die "Undo"-Taste als Allheilmittel zu sehen.</p>
+            </div>
+
+            <div class="bio-block">
+                <h3>WORK & EXPERIENCE</h3>
+                <p>Moreau startete als Illustrator für französische Satiremagazine und Untergrund-Zines. Nach einem Studium der Visuellen Kommunikation in Paris arbeitete er jahrelang als Artdirektor für Kulturinstitutionen, bevor er sich ganz seiner eigenen Kunst widmete. Heute ist er bekannt für seine großformatigen Installationen im öffentlichen Raum, die oft politische Missstände oder die Absurdität des Konsumverhaltens in Frankreich anprangern.</p>
+            </div>
+
+            <div class="bio-block">
+                <h3>STYLE CHARACTERIZATION</h3>
+                <p>Sein Stil ist radikal und fragmentiert. Er beherrscht das Spiel mit dem "White Space", indem er ihn oft durchbrochen von Dotted Textures und Halbtonrastern nutzt.</p>
+            </div>
+        </div>     
+    </section>
+
+    <hr class="trennlinie">
+
+    <section class="projects-overview">
+        <h2 class="section-title">PROJECTS</h2>
+
+        <div class="projects-grid">
+            <article class="project-card" onclick="openProject('Project 1')" data-aos="fade-up"> <!--die erste projektkachel soll sofort sichtbar sein, deshalb kein data-aos-delay, weil standardwert 0-->
+                <a href="projectpageConsommerLeVide.html">
+                    <div class="project-image">
+                        <img src="../Assets/Bilder getyourgraph/Julien Moreau/Projetc/P1.png">
+                    </div>
+                    <p class="project-title">CONSOMMER LE VIDE</p> 
+                </a> 
+            </article> <!-- <article>-Element wird verwendet, weil jeder Projekteintrag einen in sich geschlossenen, eigenständigen Inhalt darstellt.-->
+
+            <article class="project-card" onclick="openProject('Project 2')" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-image">
+                    <img src="../Assets/Bilder getyourgraph/Julien Moreau/Projetc/P2-2.png">
+                </div>
+                <p class="project-title">LA MATRICE MENTALE</p>
+            </article> 
+
+            <article class="project-card" onclick="openProject('Projekt 3')" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-image2">
+                    <img src="../Assets/Bilder getyourgraph/Julien Moreau/Projetc/P3.png">
+                </div>
+                <p class="project-title">FRAGMENTS D'IDENTITE</p>
+            </article>
+
+            <article class="project-card" onclick="openProject('Projekt 3')" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-image">
+                    <img src="../Assets/Bilder getyourgraph/Julien Moreau/Projetc/P5-2.png">
+                </div>
+                <p class="project-title">L'ECHO DU SILENCE</p>
+            </article>
+
+            <article class="project-card" onclick="openProject('Projekt 3')" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-image">
+                    <img src="../Assets/Bilder getyourgraph/Julien Moreau/Projetc/P4.png">
+                </div>
+                <p class="project-title">REGARD FIXE</p>
+            </article>
+        </div>
+        <!--Fußnoten Hinweis, um klarzustellen, dass alle Bilder generiert wurden-->
+            <p class="global-ki-hinweis"> * Alle auf dieser Seite gezeigten Bilder wurden mit Hilfe von KI erstellt.</p>
+
+    </section>
+
+  
+     <footer class="site-footer">
+        <div class="footer-links">
+            <a href="impressum.html">Impressum & Data Privacy</a>
+            <a href="help.html">Help</a>
+        </div>
+        <div class="footer-copyright">
+            © 2026 getyourgraph
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="../Logik/designerpage.js"></script>
+    
+</body>
+</html>
